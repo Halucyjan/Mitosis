@@ -28,7 +28,7 @@ class Particle {
 
     this.acc.mult(0);
 
-    // zwiekszanie masy
+    // incrise mass
     if (this.mass < 10)
       this.mass += 0.001;
     this.r = 16 * this.mass;
@@ -49,7 +49,7 @@ class Particle {
     this.applyForce(friction);
   }
 
-  //podział komórkowey (cell division)
+  //cell division
   division() {
     let v = p5.Vector.random2D();
     return v;
@@ -66,22 +66,22 @@ class Particle {
   }
 
   edges() {
-    //prawo
+    //right
     if (this.location.x > width - this.r / 2) {
       this.location.x = width - this.r / 2;
       this.vel.x *= -1
     }
-    //lewo
+    //left
     if (this.location.x < this.r / 2) {
       this.location.x = this.r / 2;
       this.vel.x *= -1
     }
-    //dol
+    //down
     if (this.location.y > height - this.r / 2) {
       this.location.y = height - this.r / 2;
       this.vel.y *= -1
     }
-    // gora
+    // up
     if (this.location.y < this.r / 2) {
       this.location.y = this.r / 2;
       this.vel.y *= -1
